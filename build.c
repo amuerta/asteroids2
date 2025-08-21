@@ -193,6 +193,9 @@ int main(int argc, char** argv) {
 
     run("./codegen/gen");
 
+    // make sure bin exists
+    nob_mkdir_if_not_exists("./bin");
+ 
     if (!build_main(argc,argv, inout, target, opts)) {
         nob_log(NOB_ERROR,"Build of main executable failed");
         return 1;
