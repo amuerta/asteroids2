@@ -19,7 +19,7 @@ void a2_ui_set_style(mu_Context* ctx, const char* selector, Color color) {
         { "basefocus",    MU_COLOR_BASEFOCUS   },
         { "scrollbase",   MU_COLOR_SCROLLBASE  },
         { "scrollthumb",  MU_COLOR_SCROLLTHUMB },
-        { NULL }
+        { NULL, -1 }
     };
     for(int i = 0; colors[i].label; i++) {
         const char* l = colors[i].label;

@@ -2,6 +2,10 @@
 
 #define WARN_IGNORE "-Wno-override-init"
 
+// override CC with any C compiler you want
+// NOTE: different compilers have different -Wall -Wextra warnings.
+#define CC "cc"
+
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -46,7 +50,7 @@ int build_main(int agrc, char** argv, const char** inout, int platform, int opt)
 
     if (windows)  {
         nob_cmd_append(&cmd, 
-                (platform & PLATFORM_WINDOWS) ? "gcc" : "x86_64-w64-mingw32-gcc", 
+                (platform & PLATFORM_WINDOWS) ? CC : "x86_64-w64-mingw32-gcc", 
                 "-o", 
                 inout[EXEC_OUT], inout[EXEC_IN], 
                 "-Wall", "-Wextra",
@@ -56,7 +60,7 @@ int build_main(int agrc, char** argv, const char** inout, int platform, int opt)
     }
     else {
         nob_cmd_append(&cmd, 
-                "cc", "-o", inout[EXEC_OUT], inout[EXEC_IN], 
+                CC, "-o", inout[EXEC_OUT], inout[EXEC_IN], 
                 "-Wall", "-Wextra"
                 );
     }
@@ -120,7 +124,7 @@ bool build_codegen(int opts, int platform) {
     ;
 
     nob_cmd_append(&cmd, 
-            "cc", "-o",  
+            CC, "-o",  
             "./codegen/gen",
             "./codegen/gen.c",
             "-Wall", "-Wextra",

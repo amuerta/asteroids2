@@ -11,7 +11,8 @@
 
 #define RAYGUI_IMPLEMENTATION
 
-#include "../lib/raygui.h"
+// Raygui is not used so far.
+//#include "../lib/raygui.h"
 #include "../lib/microui_rl.c"
 
 #endif

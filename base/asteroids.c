@@ -162,7 +162,7 @@ Entity a2_create_asteroid(Constants c, int astertype) {
     Entity asteroid = {
         .type = A2_ENTITY_TYPE_ASTEROID,
         .position = {-100,0},
-        .velocity = {speed},
+        .velocity = {speed,0},
         .face     = {0,-1}, // up
         .rotation = 0,
         .base = a2_asteroid_get_random_model(c, astertype),
@@ -199,7 +199,7 @@ void a2_asteroid_point_at_player(Entity* player, Entity* asteroid) {
 Entity a2_create_asteroid_random(Constants c, Rectangle arena, Entity* player) {
         enum { TOP, RIGHT, BOTTOM, LEFT };
 
-        Vector2 position;                   
+        Vector2 position = {0};                   
         Rectangle t     = rec_expand(arena, 100); //TODO: replace w named constant
         Entity asteroid = a2_create_asteroid(c, a2_asteroid_get_type(c));
 
