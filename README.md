@@ -52,8 +52,9 @@ If you want to know why previous asteroids was a mess, take a look [here](https:
     # first:
     ./bin/main(.exe)
 
-    #second:
-    ./build run
+    #second: you can add 'run' to your build step 
+    #example: ./build <platform> bake run
+    ./build win bake run
 ```
 
 
